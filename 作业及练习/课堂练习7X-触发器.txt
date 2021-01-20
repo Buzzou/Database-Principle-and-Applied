@@ -1,0 +1,8 @@
+create trigger updateStock
+after update of 存量 on 仓储
+referencing
+    oldrow as oldstock
+    newrow as newstock
+for each row
+    update 产品
+    set newstock = oldstock + 存量
